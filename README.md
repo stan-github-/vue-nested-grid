@@ -1,6 +1,6 @@
 # vue-nested-grid
 
-## features (work in progress)
+### features (work in progress)
 - pagination
 - infinitely nested levels
 - sorting on detail group
