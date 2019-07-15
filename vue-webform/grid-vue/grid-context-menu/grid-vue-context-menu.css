@@ -1,0 +1,36 @@
+﻿  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+  }
+
+  input:hover{
+    background-color: lightgreen;
+  }
+
+  /*
+  li > input[selected="selected"] {
+    background-color: cadetblue;
+  }*/
+
+  /* WebKit/Blink Browsers */
+  /*
+  li > input[selected="selected"]::selection {
+    background: transparent; 
+  }*/
+
+  /* Gecko Browsers */
+  /*
+  li > input[selected="selected"]::-moz-selection {
+    background: transparent; 
+  }*/
+
+  a {
+    color: #42b983;
+  }
+

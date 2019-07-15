@@ -1,0 +1,39 @@
+﻿<div>
+    <div style="margin-left: 15px; border-left: 2px solid #ff5722;">
+        <div>
+            <template v-for="column in detailData.columns">
+                <div style="width: 150px; display: inline-block">
+                    <span @contextmenu="onContextMenu($event, column.name, column.guid, contextMenu)"
+                          :ref="'detailcolumn_' + column.name + '_' + column.guid">
+                        {{column.name}}
+                    </span>
+                    <template v-show="column.sort.order">
+                        <span v-show="column.sort.direction=='dsc'" class="icon-arrow-down2"></span>
+                        <span v-show="column.sort.direction=='asc'" class="icon-arrow-up2"></span>
+                        <span>{{column.sort.order}}</span>
+                    </template>
+                </div>
+            </template>
+        </div>
+        <template v-for="detail in getPaginatedData(detailData)" :key="detail.id">
+            <div style="margin-left: 5px">
+                <template v-for="key in getObjectKeys(detail)">
+                    <span style="width: 150px; display: inline-block">{{detail[key]}}</span>
+                </template>
+            </div>
+        </template>
+        <div style="display: inline-block" v-show="numberOfPages() > 1">
+            <span class="icon-circle-left" v-on:click="pagePrevious(detailData)" :disabled="pageNumber==1">
+                
+            </span>
+            <span>{{pageNumber}}</span>
+            <span class="icon-circle-right" :disabled="isLastPage()"
+                    v-on:click="pageNext(detailData)">
+            </span>
+        </div>
+    </div>
+
+    <grid-vue-context-menu v-show="contextMenu.isVisible"
+            v-bind:container-style="contextMenu.containerStyle"
+            v-bind:header-name="contextMenu.headerName" />
+</div>

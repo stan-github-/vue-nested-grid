@@ -1,0 +1,50 @@
+﻿<div>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th v-for="column in detailColumns"
+                    :key="column.name" @contextmenu="onContextMenu($event, column.name, id)"
+                    :ref="'gridcolumn_' + column.name">
+                    <span v-if="column.name == 'selected'"></span>
+                    <span v-if="column.name != 'selected'">{{column.name}}</span>
+                    <span v-bind:class="{'glyphicon': column.sortOrder, 
+                         'glyphicon-arrow-down': (column.sortOrder&&column.sortDirection=='dsc'),
+                         'glyphicon-arrow-up': (column.sortOrder&&column.sortDirection=='asc') }"></span>
+                    <span>{{column.sortOrder}}</span>
+                    <!--<span>{{column}}</span>-->
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <template v-for="(section, key) in gridData">
+            <tr>
+                <td>
+                    <span>
+                        {{key}}
+                    </span>    
+                </td>
+                <td></td><td></td><td></td>
+            </tr>
+            <tr v-for="(item) in section">
+                <td></td>
+                <td>
+                    {{item.id}}
+                </td>
+                <td>
+                    {{item.value}}
+                </td>
+                <td>
+                    <input type="checkbox" id="checkbox" v-model="item.selected" />    
+                </td>
+            </tr>
+        </template>        
+        </tbody>
+    </table>
+    <grid-vue-context-menu v-show="contextMenu.isVisible"
+                           v-bind:container-style="contextMenu.containerStyle"
+                           v-bind:header-name="contextMenu.headerName" />
+    <pre>{{gridData}}</pre>
+    
+</div>
+

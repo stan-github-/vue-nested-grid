@@ -1,0 +1,14 @@
+﻿<div :style="$props.containerStyle">
+    <ul>
+        <li v-for="item in itemList" :key="item.index">
+            <!--
+            this has to be a an input or anchor in order for tab or focus to work!
+            -->
+            <input readonly
+                   :value="item.name"
+                   @click="itemOnClick($event, item, headerName)"
+                   :ref="'item' + item.key"
+                   :class="item.class" />
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,27 @@
+﻿<div>
+    <table>
+        <thead>
+            <tr>
+                <th v-for="header in headersModel" 
+                    :key="header.name" @contextmenu="onContextMenu($event, header.name, id)" 
+                    :ref="'gridHeader_' + header.name">
+                    {{header.name}}
+                    <span v-bind:class="{'glyphicon': header.sortOrder, 'glyphicon-arrow-down': (header.sortOrder&&header.sortDirection=='dsc'),
+            'glyphicon-arrow-up': (header.sortOrder&&header.sortDirection=='asc') }"></span>
+                    <span>{{header.sortOrder}}</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="row in dataModel" :key="row.id">
+                <td v-for="header in headersModel" :key="header.name">
+                    {{row[header.name]}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <grid-vue-context-menu v-show="contextMenu.isVisible"
+                        v-bind:container-style="contextMenu.containerStyle"
+                        v-bind:header-name="contextMenu.headerName" />
+</div>
+
