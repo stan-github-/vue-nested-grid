@@ -9,5 +9,5 @@
 - c# web forms
 - vue.js
 - bootstrap 4.0
-
+- icomoon (icons)
 <image src='vue-webform/images/comp.jpg'>
