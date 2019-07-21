@@ -1,13 +1,15 @@
 ﻿<div style="margin-left: 30px">
     <template v-for="detail in gridData.details" key="section.id">
         <div v-on:click="onSliderClick(detail)">
-            <!--<span>isCollapsed: {{detail.isCollapsed}}</span>   -->
-            <span v-if="detail.type==='group' || detail.type == 'detail-group'" 
-                  style="margin-left: 5px">
-                {{detail.group.header}} : {{detail.group.value}} 
+            <span class="badge badge-primary">
+                <!--<span>isCollapsed: {{detail.isCollapsed}}</span>   -->
+                <span v-show="getSliderText(detail) == '+'" class="icon-plus"></span>
+                <span v-show="getSliderText(detail) == '-'" class="icon-minus"></span>
+                <span v-if="detail.type==='group' || detail.type == 'detail-group'" 
+                      style="margin-left: 5px">
+                    {{detail.group.header}} : {{detail.group.value}} 
+                </span>
             </span>
-            <span v-show="getSliderText(detail) == '+'" class="icon-plus"></span>
-            <span v-show="getSliderText(detail) == '-'" class="icon-minus"></span>
         </div>
         <div v-show="!detail.isCollapsed">
             <grid-vue-details v-if="detail.type==='detail-group'" :detail-data="detail">

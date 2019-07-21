@@ -1,17 +1,20 @@
 ﻿<div>
-    <div style="margin-left: 15px; border-left: 2px solid #ff5722;">
+    <div style="margin-left: 15px;">
         <div>
             <template v-for="column in detailData.columns">
-                <div style="width: 150px; display: inline-block">
-                    <span @contextmenu="onContextMenu($event, column.name, column.guid, contextMenu)"
-                          :ref="'detailcolumn_' + column.name + '_' + column.guid">
+                <div class="badge badge-primary" style="width: 150px; display: inline-block">
+                    <span :ref="'detailcolumn_' + column.name + '_' + column.guid">
                         {{column.name}}
                     </span>
-                    <template v-show="column.sort.order">
+                    <span v-show="column.sort.order" @contextmenu="onContextMenu($event, column.name, column.guid, contextMenu)"  style="float:right">
                         <span v-show="column.sort.direction=='dsc'" class="icon-arrow-down2"></span>
                         <span v-show="column.sort.direction=='asc'" class="icon-arrow-up2"></span>
-                        <span>{{column.sort.order}}</span>
-                    </template>
+                        <span style="float:right">{{column.sort.order}}</span>
+                    </span>
+                    <span v-show="!column.sort.order" @contextmenu="onContextMenu($event, column.name, column.guid, contextMenu)" 
+                         style="float:right">
+                        <span class="icon-sort-amount-asc"></span>
+                    </span>
                 </div>
             </template>
         </div>
@@ -23,11 +26,11 @@
             </div>
         </template>
         <div style="display: inline-block" v-show="numberOfPages() > 1">
-            <span class="icon-circle-left" v-on:click="pagePrevious(detailData)" :disabled="pageNumber==1">
-                
+            <span class="icon-circle-left btn-sm btn-secondary" 
+                v-on:click="pagePrevious(detailData)" :disabled="pageNumber==1">
             </span>
             <span>{{pageNumber}}</span>
-            <span class="icon-circle-right" :disabled="isLastPage()"
+            <span class="icon-circle-right btn-sm btn-secondary" :disabled="isLastPage()"
                     v-on:click="pageNext(detailData)">
             </span>
         </div>

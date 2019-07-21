@@ -8,8 +8,8 @@
     <%--vue--%>
     <script src="../inc/vue.min.js"></script>
     <%-- bootstrap --%>
-    <link type="text/css" rel="Stylesheet" href="../inc/bootstrap/css/bootstrap-theme.min.css" />
-    <link type="text/css" rel="Stylesheet" href="../inc/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="Stylesheet" href="../inc/bootstrap4/bootstrap.css" />
+    <link type="text/css" rel="Stylesheet" href="../inc/bootstrap4/bootstrap-grid.css" />
     <%-- jquery --%>
     <script type="text/javascript" src="../inc/jquery-2.1.1.min.js"></script>
     <%-- lodash --%>

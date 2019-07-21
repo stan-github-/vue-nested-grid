@@ -90,9 +90,8 @@
     <Content Include="grid-vue\grid\grid-vue.js" />
     <Content Include="grid-vue\datastore.js" />
     <Content Include="inc\bootstrap-vue.js" />
-    <Content Include="inc\bootstrap4\bootstrap-vue.css" />
+    <Content Include="inc\bootstrap4\bootstrap-grid.css" />
     <Content Include="inc\bootstrap4\bootstrap.css" />
-    <Content Include="inc\bootstrap4\bootstrap.formatted.css" />
     <Content Include="inc\bootstrap\css\bootstrap-theme.css" />
     <Content Include="inc\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="inc\bootstrap\css\bootstrap.css" />
