@@ -180,8 +180,8 @@
     var contextMenu = {
         isVisible: false,
         containerStyle: {
-            width: '250px',
-            height: '200px',
+            width: '200px',
+            height: '150px',
             top: null,
             left: null,
             position: 'absolute'

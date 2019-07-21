@@ -8,7 +8,9 @@
                    :value="item.name"
                    @click="itemOnClick($event, item, headerName)"
                    :ref="'item' + item.key"
-                   :class="item.class" />
+                   class="form-control mr-sm-2" 
+                   style="font-size: 0.8rem; width: 80%; padding: 2px"
+                    />
         </li>
     </ul>
 </div>

@@ -13,7 +13,7 @@
     data_.itemList.forEach(function (i, index) {
         i.tabindex = index;
         i.selected = false;
-        i.class = 'form-control mr-sm-2'
+        //i.class = 'form-control mr-sm-2'
     });
 
     function isBlank(str) {
