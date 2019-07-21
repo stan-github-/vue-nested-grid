@@ -1,7 +1,7 @@
 ﻿<div style="margin-left: 30px">
     <template v-for="detail in gridData.details" key="section.id">
         <div v-on:click="onSliderClick(detail)">
-            <span class="badge badge-primary">
+            <span class="badge badge-success">
                 <!--<span>isCollapsed: {{detail.isCollapsed}}</span>   -->
                 <span v-show="getSliderText(detail) == '+'" class="icon-plus"></span>
                 <span v-show="getSliderText(detail) == '-'" class="icon-minus"></span>

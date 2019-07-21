@@ -20,8 +20,8 @@
         </div>
         <template v-for="detail in getPaginatedData(detailData)" :key="detail.id">
             <div style="margin-left: 5px">
-                <template v-for="key in getObjectKeys(detail)">
-                    <span style="width: 150px; display: inline-block">{{detail[key]}}</span>
+                <template v-for="column in detailData.columns">
+                    <span style="width: 150px; display: inline-block">{{detail[column.name]}}</span>
                 </template>
             </div>
         </template>

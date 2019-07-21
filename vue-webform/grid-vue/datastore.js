@@ -68,33 +68,32 @@ if (!gridDataStore) {
                             total: 20
                         },
                         columns: [
-                            { name: 'value', sort: { order: 1, direction: 'asc' }, uuid: null},
-                            { name: 'id', sort: { order: 2, direction: 'asc' }, uuid: null },
+                            { name: 'id', sort: { order: 1, direction: 'asc' }, uuid: null },
+                            { name: 'value', sort: { order: 2, direction: 'asc' }, uuid: null },
                             { name: 'selected', sort: { order: 3, direction: 'asc' }, uuid: null },
-                            { name: 'type', sort: { order: 4, direction: 'asc' }, uuid: null },
-                            { name: 'depth', sort: { order: 5, direction: 'asc' }, uuid: null }
+                            { name: 'category', sort: { order: 4, direction: 'asc' }, uuid: null },
                         ],
                         details: [
-                        { id: 1, value: 200, selected: false, type: 'details', depth: 2 },
-                        { id: 2, value: 190, selected: false, type: 'details', depth: 2 },
-                        { id: 3, value: 180, selected: false, type: 'details', depth: 2 },
-                        { id: 4, value: 170, selected: false, type: 'details', depth: 2 },
-                        { id: 5, value: 160, selected: false, type: 'details', depth: 2 },
-                        { id: 6, value: 150, selected: false, type: 'details', depth: 2 },
-                        { id: 7, value: 140, selected: false, type: 'details', depth: 2 },
-                        { id: 8, value: 130, selected: false, type: 'details', depth: 2 },
-                        { id: 9, value: 120, selected: false, type: 'details', depth: 2 },
-                        { id: 10, value: 110, selected: false, type: 'details', depth: 2 },
-                        { id: 11, value: 100, selected: false, type: 'details', depth: 2 },
-                        { id: 12, value: 90, selected: false, type: 'details', depth: 2 },
-                        { id: 13, value: 80, selected: false, type: 'details', depth: 2 },
-                        { id: 14, value: 70, selected: false, type: 'details', depth: 2 },
-                        { id: 15, value: 60, selected: false, type: 'details', depth: 2 },
-                        { id: 16, value: 50, selected: false, type: 'details', depth: 2 },
-                        { id: 17, value: 40, selected: false, type: 'details', depth: 2 },
-                        { id: 18, value: 30, selected: false, type: 'details', depth: 2 },
-                        { id: 19, value: 20, selected: false, type: 'details', depth: 2 },
-                        { id: 20, value: 10, selected: false, type: 'details', depth: 2 }
+                        { id: 1, value: 200, selected: false, category: 'a',  },
+                        { id: 2, value: 190, selected: false, category: 'b',  },
+                        { id: 3, value: 180, selected: false, category: 'c',  },
+                        { id: 4, value: 170, selected: false, category: 'c',  },
+                        { id: 5, value: 160, selected: false, category: 'c',  },
+                        { id: 6, value: 150, selected: false, category: 'd',  },
+                        { id: 7, value: 140, selected: false, category: 'a',  },
+                        { id: 8, value: 130, selected: false, category: 'b',  },
+                        { id: 9, value: 120, selected: false, category: 'c',  },
+                        { id: 10, value: 110, selected: false, category: 'a',  },
+                        { id: 11, value: 100, selected: false, category: 'b',  },
+                        { id: 12, value: 90, selected: false, category: 'c',  },
+                        { id: 13, value: 80, selected: false, category: 'a',  },
+                        { id: 14, value: 70, selected: false, category: 'b',  },
+                        { id: 15, value: 60, selected: false, category: 'c',  },
+                        { id: 16, value: 50, selected: false, category: 'b',  },
+                        { id: 17, value: 40, selected: false, category: 'b',  },
+                        { id: 18, value: 30, selected: false, category: 'b',  },
+                        { id: 19, value: 20, selected: false, category: 'a',  },
+                        { id: 20, value: 10, selected: false, category: 'a',  }
                         ]
                     },
                 {
@@ -103,12 +102,19 @@ if (!gridDataStore) {
                     group: { id: 20, value: 'Feb', header: 'Month' },
                     isCollapsed: false,
                     depth: 1,
+                    columns: [
+                            { name: 'id', sort: { order: 1, direction: 'asc' }, uuid: null },
+                            { name: 'value', sort: { order: 2, direction: 'asc' }, uuid: null },
+                            { name: 'selected', sort: { order: 3, direction: 'asc' }, uuid: null },
+                            { name: 'category', sort: { order: 4, direction: 'asc' }, uuid: null },
+                    ],
                     details: [
-                { id: 3, value: 70, selected: false, type: 'details', depth: 2 },
-                { id: 4, value: 80, selected: false, type: 'details', depth: 2 }
+                        { id: 3, value: 70, selected: false, category: 'a'},
+                        { id: 4, value: 80, selected: false, category: 'z', }
                     ]
                 }
-                        ]
+                ]
+
                 },
                 {
                     id: 'z4',
@@ -116,6 +122,12 @@ if (!gridDataStore) {
                     group: { id: 2, value: '2001', header: 'Year' },
                     isCollapsed: false,
                     depth: 1,
+                    columns: [
+                            { name: 'id', sort: { order: 1, direction: 'asc' }, uuid: null },
+                            { name: 'value', sort: { order: 2, direction: 'asc' }, uuid: null },
+                            { name: 'selected', sort: { order: 3, direction: 'asc' }, uuid: null },
+                            { name: 'category', sort: { order: 4, direction: 'asc' }, uuid: null },
+                    ],
                     details:
                         [
                 {
@@ -125,9 +137,15 @@ if (!gridDataStore) {
                     depth: 1,
                     hasDetails: true,
                     isCollapsed: false,
+                    columns: [
+                            { name: 'id', sort: { order: 1, direction: 'asc' }, uuid: null },
+                            { name: 'value', sort: { order: 2, direction: 'asc' }, uuid: null },
+                            { name: 'selected', sort: { order: 3, direction: 'asc' }, uuid: null },
+                            { name: 'category', sort: { order: 4, direction: 'asc' }, uuid: null },
+                    ],
                     details: [
-                        { id: 5, value: 20, selected: false, type: 'details', depth: 2 },
-                        { id: 6, value: 90, selected: false, type: 'details', depth: 2 }
+                        { id: 5, value: 20, selected: false, category: 'a',  },
+                        { id: 6, value: 90, selected: false, category: 'b',  }
                     ]
                 },
                 {
@@ -137,9 +155,15 @@ if (!gridDataStore) {
                     group: { id: 40, value: 'May', header: 'Month' },
                     isCollapsed: false,
                     depth: 1,
+                    columns: [
+                            { name: 'id', sort: { order: 1, direction: 'asc' }, uuid: null },
+                            { name: 'value', sort: { order: 2, direction: 'asc' }, uuid: null },
+                            { name: 'selected', sort: { order: 3, direction: 'asc' }, uuid: null },
+                            { name: 'category', sort: { order: 4, direction: 'asc' }, uuid: null },
+                    ],
                     details: [
-                        { id: 7, value: 70, selected: false, type: 'details', depth: 2 },
-                        { id: 8, value: 80, selected: false, type: 'details', depth: 2 }
+                        { id: 7, value: 70, selected: false, category: 'a',  },
+                        { id: 8, value: 80, selected: false, category: 'c',  }
                     ]
                 }
                 ]
