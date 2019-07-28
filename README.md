@@ -8,7 +8,6 @@
 - sorting on detail group
 
 ### tech stack 
-- c# web forms
 - vue.js
 - bootstrap 4.0
 - icomoon (icons)
