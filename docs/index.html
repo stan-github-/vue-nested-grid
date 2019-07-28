@@ -1,4 +1,140 @@
-<html>
-    <head></head>
-    <body>test test</body>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+
+</title>
+    
+    <script src="./inc/vue.min.js"></script>
+    
+    <link type="text/css" rel="Stylesheet" href="./inc/bootstrap4/bootstrap.css" />
+    <link type="text/css" rel="Stylesheet" href="./inc/bootstrap4/bootstrap-grid.css" />
+    
+    <script type="text/javascript" src="./inc/jquery-2.1.1.min.js"></script>
+    
+    <script type="text/javascript" src="./inc/lodash.js"></script>
+    
+    <script type="text/javascript" src="./inc/thenby.js"></script>
+    
+    
+    <link type="text/css" rel="Stylesheet" href="./grid/grid-vue.css" />
+    <link type="text/css" rel="Stylesheet" href="./grid-context-menu/grid-vue-context-menu.css" />
+    <link type="text/css" rel="stylesheet" href="./inc/icon-moon/style.css" />
+    
+    <script type="text/javascript" src="./vue-init.js"></script>
+</head>
+
+<body>
+    <form method="post" action="./index.aspx" id="ctl01">
+    <script type="text/x-template" id="grid-vue-context-menu-template">
+        <div :style="$props.containerStyle">
+            <ul>
+                <li v-for="item in itemList" :key="item.index">
+                    <!--
+                    this has to be a an input or anchor in order for tab or focus to work!
+                    -->
+                    <input readonly
+                        :value="item.name"
+                        @click="itemOnClick($event, item, headerName)"
+                        :ref="'item' + item.key"
+                        class="form-control mr-sm-2" 
+                        style="font-size: 0.8rem; width: 80%; padding: 2px"
+                            />
+                </li>
+            </ul>
+        </div></script>
+    <script type="text/x-template" id="grid-vue-details-template">
+    <div>
+        <div style="margin-left: 15px; min-width: 800px">
+            <div>
+                <template v-for="column in detailData.columns">
+                    <div class="badge badge-primary" style="width: 150px; display: inline-block">
+                        <span :ref="'detailcolumn_' + column.name + '_' + column.guid">
+                            {{column.name}}
+                        </span>
+                        <span v-show="column.sort.order" @contextmenu="onContextMenu($event, column.name, column.guid, contextMenu)"  style="float:right">
+                            <span v-show="column.sort.direction=='dsc'" class="icon-arrow-down2"></span>
+                            <span v-show="column.sort.direction=='asc'" class="icon-arrow-up2"></span>
+                            <span style="float:right">{{column.sort.order}}</span>
+                        </span>
+                        <span v-show="!column.sort.order" @contextmenu="onContextMenu($event, column.name, column.guid, contextMenu)" 
+                            style="float:right">
+                            <span class="icon-sort-amount-asc"></span>
+                        </span>
+                    </div>
+                </template>
+            </div>
+            <template v-for="detail in getPaginatedData(detailData)" :key="detail.id">
+                <div style="margin-left: 5px">
+                    <template v-for="column in detailData.columns">
+                        <span style="width: 150px; display: inline-block">{{detail[column.name]}}</span>
+                    </template>
+                </div>
+            </template>
+            <div style="display: inline-block" v-show="numberOfPages() > 1">
+                <span class="icon-circle-left btn-sm btn-secondary" 
+                    v-on:click="pagePrevious(detailData)" :disabled="pageNumber==1">
+                </span>
+                <span>{{pageNumber}}</span>
+                <span class="icon-circle-right btn-sm btn-secondary" :disabled="isLastPage()"
+                        v-on:click="pageNext(detailData)">
+                </span>
+            </div>
+        </div>
+
+        <grid-vue-context-menu v-show="contextMenu.isVisible"
+                v-bind:container-style="contextMenu.containerStyle"
+                v-bind:header-name="contextMenu.headerName" />
+        </div>
+</script>
+
+<script type="text/x-template" id="grid-vue-template"><div style="margin-left: 30px">
+    <template v-for="detail in gridData.details" key="section.id">
+        <div v-on:click="onSliderClick(detail)">
+            <span class="badge badge-success">
+                <!--<span>isCollapsed: {{detail.isCollapsed}}</span>   -->
+                <span v-show="getSliderText(detail) == '+'" class="icon-plus"></span>
+                <span v-show="getSliderText(detail) == '-'" class="icon-minus"></span>
+                <span v-if="detail.type==='group' || detail.type == 'detail-group'" 
+                      style="margin-left: 5px">
+                    {{detail.group.header}} : {{detail.group.value}} 
+                </span>
+            </span>
+        </div>
+        <div v-show="!detail.isCollapsed">
+            <grid-vue-details v-if="detail.type==='detail-group'" :detail-data="detail">
+            </grid-vue-details>
+            <grid-vue v-if="detail.type==='group'" :grid-data="detail"></grid-vue>
+        </div>
+    </template>
+</div>
+
+</script>
+
+<script type="text/x-template" id="grid-vue-wrapper-template"><div id="grid-wrapper">
+    <grid-vue :grid-data="gridData"></grid-vue>
+</div>
+</script>
+
+<script type="text/javascript" src=".\datastore.js"></script>
+<script type="text/javascript" src=".\grid-context-menu\grid-vue-context-menu.js"></script>
+<script type="text/javascript" src=".\grid\grid-vue-details.js"></script>
+<script type="text/javascript" src=".\grid\grid-vue.js"></script>
+<script type="text/javascript" src=".\grid-wrapper\grid-vue-wrapper.js"></script>
+
+
+<script type="text/javascript">
+</script>
+
+        <div id="vueApp" @click="onClick"><span>{{pageName}}</span>
+            <grid-vue-wrapper></grid-vue-wrapper>
+        </div>    
+    </form>
+    <script>
+        $(document).ready(function () {
+            $('form').submit(false);
+        });
+    </script>
+</body>
 </html>

@@ -75,6 +75,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="docs\index.html" />
     <Content Include="Global.asax" />
     <Content Include="grid-vue\grid-context-menu\grid-vue-context-menu.css" />
     <Content Include="grid-vue\grid-context-menu\grid-vue-context-menu.html" />
