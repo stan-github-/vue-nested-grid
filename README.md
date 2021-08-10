@@ -3,7 +3,7 @@
 [demo](https://stan-github-.github.io/vue-nested-grid/) 
 
 ### features (work in progress)
-- pagination
+- pagination.
 - infinitely nested levels
 - sorting on detail group
 
