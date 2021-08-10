@@ -30,7 +30,7 @@
     <form runat="server">
         <asp:ScriptManager ID="scriptManager" runat="server">
         </asp:ScriptManager>
-        <div id="vueApp" @click="onClick"><span>{{pageName}}</span>
+        <div id="vueApp" @click="onClick">
             <grid-vue-wrapper></grid-vue-wrapper>
         </div>    
     </form>
